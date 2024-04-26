@@ -1,8 +1,12 @@
 import Cabecalho from "components/Cabecalho/Index"
+import Rodape from "components/Rodape/Index"
 
 function Inicio () {
     return(
-        <Cabecalho/>
+        <>
+            <Cabecalho/>
+            <Rodape />
+        </>
     )
 }
 
