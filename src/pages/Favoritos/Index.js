@@ -4,8 +4,12 @@ import Rodape from 'components/Rodape/Index'
 import Banner from 'components/Banner/Index'
 import Titulo from 'components/Titulo/Index'
 import Card from 'components/Card/Index'
+import { useFavoritoContext } from 'components/Contextos/Favorito'
 
 function Favoritos () {
+    const{favorito} = useFavoritoContext();
+
+
     return(
         <>
         <Banner imagem='Favoritos'/>
@@ -13,7 +17,9 @@ function Favoritos () {
             <h1>Veja os seus vídeos favoritos</h1>
         </Titulo>
         <section className={styles.container}>
-            <Card id='2' titulo='Um componente no espaço' capa='https://cdn3.gnarususercontent.com.br/2802-react-praticando/img1.png'></Card>
+            {favorito.map((fav) => {
+                return <Card{...fav} key={fav.id}/>
+            })}
         </section>
         </>
     )
